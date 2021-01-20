@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {ProvideAuth} from "./useAuth";
+import {Route, Router, Switch} from "react-router";
+import {createBrowserHistory} from "history";
+import {LoginPage} from "./components/LoginPage";
+import {Home} from "./components/Home";
+import 'bootstrap/dist/css/bootstrap.css'
+import {Header} from "./components/Header";
+import {useState} from "react";
+
+import {Alert} from "./components/Alerts";
+
+const browserHistory = createBrowserHistory();
 
 function App() {
+  const [show, setShow] = useState({isShow:false, text:"", title:""});
+    const handleClose = () => setShow((state,props) => setShow({...state, isShow: false}));
+    const handleShow = (message, tit) => setShow({isShow: true, text: message, title: tit});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ProvideAuth>
+          <Router  history={browserHistory} >
+              <Header/>
+              <Alert show={show} handleClose={handleClose}/>
+              <Switch>
+                  <Route exact path="/" component={Home}/>
+                  <Route path="/login">
+                      <LoginPage handlerShow={handleShow}/>
+                  </Route>
+              </Switch>
+          </Router>
+      </ProvideAuth>
   );
 }
 
