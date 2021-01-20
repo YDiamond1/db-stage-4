@@ -1,12 +1,12 @@
 import {RTable} from "./Table";
 import {Col} from "react-bootstrap";
-import {requests_w} from "../requests";
+import {requests_w, requests} from "../requests";
 import {useEffect, useState} from "react";
 
 export function RequestTable(props) {
     const [information, setInformation] = useState({data: null});
     useEffect(()=>{
-        requests_w.get(props.fromUrl)
+        requests.get(props.fromUrl)
             .then(resp=>setInformation({data:resp.data}))
     },[information]);
 
