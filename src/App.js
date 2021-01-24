@@ -26,7 +26,7 @@ function App() {
               <Switch>
                   <Route exact path="/" component={Home}/>
                   <Route path="/login">
-                      <LoginPage toUrl=" " handlerShow={handleShow}/>
+                      <LoginPage toUrl="/api/lodger" handlerShow={handleShow}/>
                   </Route>
                   <Route path="/suitability" component={Suitability}/>
               </Switch>
