@@ -16,7 +16,9 @@ export function Suitability(props){
     const search1 = event =>{
         const [name,id] = event.target.value.split(":");
         if(typeof id != "undefined"){
-            lodgers1.map(value => {if (value.id == id) setLodger1(value)})
+            lodgers1.map(value => {if (value.id == id) setLodger1(value)
+            return value;
+            })
         }
         else {
             requests.get(`/api/search?search=${name}`)
@@ -35,7 +37,9 @@ export function Suitability(props){
     const search2 = event =>{
         const [name,id] = event.target.value.split(":");
         if(typeof id != "undefined"){
-            lodgers1.map(value => {if (value.id == id) setLodger2(value)})
+            lodgers1.map(value => {if (value.id == id) setLodger2(value)
+            return value;
+            })
         }
         requests.get(`/api/search?search=${name}`)
             .then(resp =>{
