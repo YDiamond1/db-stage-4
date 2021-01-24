@@ -163,7 +163,7 @@ export function Suitability(props){
             </Col>
             <Col lg={4}>
                 {
-                    <Total/>
+                    <Total handlerShow={props.handlerShow}/>
                 }
             </Col>
             <Col lg={4}>
