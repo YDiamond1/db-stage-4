@@ -11,7 +11,7 @@ export function Home(props){
             <Col lg = {6}>
                 <RequestTable fromUrl="/api/schedule" pname="Schedulers"/>
             </Col>
-            <Col lg={4}>
+            <Col lg={6}>
                 <div>
                     <RequestTable fromUrl=" " pname="Dates"/>
                 </div>
