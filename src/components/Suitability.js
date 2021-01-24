@@ -114,7 +114,7 @@ export function Suitability(props){
             <Button variant={"dark"} disabled={!(lodger1!=null && lodger2!=null && lodger1!="Not Found" && lodger2!="Not Found")} block className={"my-button"}
                     onClick={ev =>
                 requests.get(`/api/suitability/get/?man_id=${lodger1.person_id}&woman_id=${lodger2.person_id}`)
-                    .then(resp=>setSuitability(resp.data))
+                    .then(resp=>setSuitability(resp.data.results[0]))
                     .catch(error => setSuitability("Not Found"))
                     } >
                 See a chance
