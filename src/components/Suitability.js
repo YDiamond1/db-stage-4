@@ -64,7 +64,10 @@ export function Suitability(props){
             }
             return (
                 <Button variant={variant} className="my-button circle-btn" block onClick={ev =>
-                requests.get(`/api/couples/set?man_id=${lodger1.person_id}&woman_id=${lodger2.person_id}`)}>{message}</Button>
+                requests.get(`/api/couples/set?man_id=${lodger1.person_id}&woman_id=${lodger2.person_id}`)
+                    .then(resp => props.handleShow("Couple have created", "Alert"))
+                    .catch(error => props.handleShow("Couple haven't created", "Error"))
+                }>{message}</Button>
             );
 
         }

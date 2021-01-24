@@ -28,7 +28,9 @@ function App() {
                   <Route path="/login">
                       <LoginPage toUrl="/api/lodger/" handlerShow={handleShow}/>
                   </Route>
-                  <Route path="/suitability" component={Suitability}/>
+                  <Route path="/suitability" >
+                      <Suitability handleShow={handleShow}/>
+                  </Route>
               </Switch>
           </Router>
       </ProvideAuth>
