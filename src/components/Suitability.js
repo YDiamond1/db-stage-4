@@ -14,21 +14,30 @@ export function Suitability(props){
 
     console.log(lodger1,lodger2,lodgers1,lodgers2);
     const search1 = event =>{
-        requests.get(`/api/search?search=${event.target.value}`)
-            .then(resp =>{
-                if(resp.data.count == 1){
-                    setLodger1(resp.data.results[0]);
-                }
-                else if(resp.data.count >1){
-                    setLodgers1(resp.data.results)
-                }
-            })
-            .catch(error =>
-                setLodger1("Not Found")
-            )
+        const [name,id] = event.target.value.split(":");
+        if(typeof id != "undefined"){
+            lodgers1.map(value => {if (value.id == id) setLodger1(value)})
+        }
+        else {
+            requests.get(`/api/search?search=${name}`)
+                .then(resp => {
+                    if (resp.data.count == 1) {
+                        setLodger1(resp.data.results[0]);
+                    } else if (resp.data.count > 1) {
+                        setLodgers1(resp.data.results)
+                    }
+                })
+                .catch(error =>
+                    setLodger1("Not Found")
+                )
+        }
     }
     const search2 = event =>{
-        requests.get(`/api/search?search=${event.target.value}`)
+        const [name,id] = event.target.value.split(":");
+        if(typeof id != "undefined"){
+            lodgers1.map(value => {if (value.id == id) setLodger2(value)})
+        }
+        requests.get(`/api/search?search=${name}`)
             .then(resp =>{
                 if(resp.data.count == 1){
                     setLodger2(resp.data.results[0]);
@@ -116,7 +125,7 @@ export function Suitability(props){
                    />
                    <datalist id="datalistOptions">
                        {
-                           lodgers1.map(value => <option value={value.name}/>)
+                           lodgers1.map(value => <option value={value.name +":"+ value.person_id}/>)
                        }
                    </datalist>
                </InputGroup>
