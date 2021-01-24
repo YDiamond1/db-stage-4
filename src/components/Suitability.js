@@ -63,10 +63,20 @@ export function Suitability(props){
                 variant = "danger"
             }
             return (
-                <Button variant={variant} className="my-button circle-btn" block onClick={ev =>
-                requests.get(`/api/couples/set?man_id=${lodger1.person_id}&woman_id=${lodger2.person_id}`)
-                    .then(resp => props.handleShow("Couple have created", "Alert"))
-                    .catch(error => props.handleShow("Couple haven't created", "Error"))
+                <Button variant={variant} className="my-button circle-btn" block onClick={ev => {
+                    let man_id="", woman_id="";
+                    if(lodger1.sex == "male"){
+                        man_id = lodger1.person_id;
+                        woman_id = lodger2.person_id
+                    }
+                    else{
+                        man_id = lodger2.person_id;
+                        woman_id = lodger1.person_id;
+                    }
+                    requests.get(`/api/couples/set?man_id=${man_id}&woman_id=${woman_id}`)
+                        .then(resp => props.handleShow("Couple have created", "Alert"))
+                        .catch(error => props.handleShow("Couple haven't created", "Error"))
+                }
                 }>{message}</Button>
             );
 
