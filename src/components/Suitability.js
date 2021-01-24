@@ -74,8 +74,8 @@ export function Suitability(props){
                         woman_id = lodger1.person_id;
                     }
                     requests.get(`/api/couples/set?man_id=${man_id}&woman_id=${woman_id}`)
-                        .then(resp => props.handleShow("Couple have created", "Alert"))
-                        .catch(error => props.handleShow("Couple haven't created", "Error"))
+                        .then(resp => props.handlerShow("Couple have created", "Alert"))
+                        .catch(error => props.handlerShow("Couple haven't created", "Error"))
                 }
                 }>{message}</Button>
             );

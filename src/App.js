@@ -1,4 +1,3 @@
-
 import './App.css';
 import {ProvideAuth} from "./useAuth";
 import {Route, Router, Switch} from "react-router";
@@ -15,26 +14,26 @@ import {Suitability} from "./components/Suitability";
 const browserHistory = createBrowserHistory();
 
 function App() {
-  const [show, setShow] = useState({isShow:false, text:"", title:""});
-    const handleClose = () => setShow((state,props) => setShow({...state, isShow: false}));
+    const [show, setShow] = useState({isShow: false, text: "", title: ""});
+    const handleClose = () => setShow((state, props) => setShow({...state, isShow: false}));
     const handleShow = (message, tit) => setShow({isShow: true, text: message, title: tit});
-  return (
-      <ProvideAuth>
-          <Router  history={browserHistory} >
-              <Header/>
-              <Alert show={show} handleClose={handleClose}/>
-              <Switch>
-                  <Route exact path="/" component={Home}/>
-                  <Route path="/login">
-                      <LoginPage toUrl="/api/lodger/" handlerShow={handleShow}/>
-                  </Route>
-                  <Route path="/suitability" >
-                      <Suitability handleShow={handleShow}/>
-                  </Route>
-              </Switch>
-          </Router>
-      </ProvideAuth>
-  );
+    return (
+        <ProvideAuth>
+            <Router history={browserHistory}>
+                <Header/>
+                <Alert show={show} handleClose={handleClose}/>
+                <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/login">
+                        <LoginPage toUrl="/api/lodger/" handlerShow={handleShow}/>
+                    </Route>
+                    <Route path="/suitability">
+                        <Suitability handlerShow={handleShow}/>
+                    </Route>
+                </Switch>
+            </Router>
+        </ProvideAuth>
+    );
 }
 
 export default App;
