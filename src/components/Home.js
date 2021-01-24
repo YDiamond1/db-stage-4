@@ -16,7 +16,7 @@ export function Home(props){
                     <RequestTable fromUrl=" " pname="Dates"/>
                 </div>
                 <div>
-                    <RequestTable fromUrl=" " pname="Deadline expires"/>
+                    <RequestTable fromUrl="/api/transform" pname="Deadline expires"/>
                 </div>
             </Col>
         </Row>
