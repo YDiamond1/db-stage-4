@@ -9,7 +9,7 @@ export function Home(props){
     <Container className="full-height">
         <Row className={"my-4 align-items-center"}>
             <Col lg = {6}>
-                <RequestTable fromUrl=" " pname="Schedulers"/>
+                <RequestTable fromUrl="/api/schedule" pname="Schedulers"/>
             </Col>
             <Col lg={4}>
                 <div>
