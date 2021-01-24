@@ -4,10 +4,12 @@ import {requests_w, requests} from "../requests";
 import {useEffect, useState} from "react";
 
 export function RequestTable(props) {
-    const [information, setInformation] = useState({data: null});
+    const [information, setInformation] = useState({message:"Loading a data...",data: null});
     useEffect(()=>{
         requests.get(props.fromUrl)
-            .then(resp=>setInformation({data:resp.data}))
+            .then(resp=>{
+                if(resp.data.count == 0) setInformation({message: "No data", data: null})
+            })
     },[information]);
 
     if(information.data)  return (
@@ -18,7 +20,7 @@ export function RequestTable(props) {
     );
     else {
         console.log(information.data);
-        return (<div><p className={"h3"}>Loading data...</p></div>);
+        return (<div><p className={"h3"}>{information.message}</p></div>);
     }
 
 }
