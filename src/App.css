@@ -1,9 +1,15 @@
 .App {
   text-align: center;
 }
+.header-table{
+  position: absolute;
+}
+.header-body{
+  padding: 20px;
+}
 .full-height{
   margin-top: 100px;
-  height: 100vh;
+  height: 85vh;
 }
 .halffull-height-row1{
   height: 30vh;
@@ -52,4 +58,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+.height-of-table {
+  height: 400px;
+  overflow-y: auto;
 }

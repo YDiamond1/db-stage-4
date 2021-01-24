@@ -4,7 +4,9 @@ import {Table} from "react-bootstrap";
 
 export function RTable({values, ...props}){
     return (
-        <Table striped bordered hover>
+        <div className="height-of-table table-responsive" >
+        <Table striped bordered hover >
+
             <thead>
             <tr>
             {
@@ -12,12 +14,15 @@ export function RTable({values, ...props}){
             }
             </tr>
             </thead>
-            <tbody>
+
+            <tbody >
             {
                 values.map(value=><MRow values={value}/>)
             }
             </tbody>
+
         </Table>
+        </div>
     );
     //return ("Hello");
 }
