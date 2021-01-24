@@ -9,7 +9,9 @@ export function RequestTable(props) {
         requests.get(props.fromUrl)
             .then(resp=>{
                 if(resp.data.count == 0) setInformation({message: "No data", data: null})
+                else setInformation({message: "Ok", data: resp.data.results})
             })
+            .catch(error => setInformation({message: "No internet", data: null}))
     },[information]);
 
     if(information.data)  return (
