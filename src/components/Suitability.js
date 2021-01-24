@@ -17,7 +17,7 @@ export function Suitability(props){
         requests.get(`/api/search?search=${event.target.value}`)
             .then(resp =>{
                 if(resp.data.count == 1){
-                    setLodger1(resp.data.results);
+                    setLodger1(resp.data.results[0]);
                 }
                 else if(resp.data.count >1){
                     setLodgers1(resp.data.results)
@@ -31,7 +31,7 @@ export function Suitability(props){
         requests.get(`/api/search?search=${event.target.value}`)
             .then(resp =>{
                 if(resp.data.count == 1){
-                    setLodger2(resp.data.results);
+                    setLodger2(resp.data.results[0]);
                 }
                 else if(resp.data.count >1){
                     setLodgers2(resp.data.results)
