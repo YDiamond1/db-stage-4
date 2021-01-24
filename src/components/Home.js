@@ -6,7 +6,7 @@ export function Home(props){
     const points = [{x:0,y:2}, {x:3,y:1},{x:3,y:1}];
 
     return (
-    <Container className="">
+    <Container className="full-height">
         <Row className={"my-4 align-items-center"}>
             <Col lg = {6}>
                 <RequestTable fromUrl=" " pname="Schedulers"/>

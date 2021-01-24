@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 export function RequestTable(props) {
     const [information, setInformation] = useState({data: null});
     useEffect(()=>{
-        requests.get(props.fromUrl)
+        requests_w.get(props.fromUrl)
             .then(resp=>setInformation({data:resp.data}))
     },[information]);
 

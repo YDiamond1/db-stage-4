@@ -10,6 +10,7 @@ import {Header} from "./components/Header";
 import {useState} from "react";
 
 import {Alert} from "./components/Alerts";
+import {Suitability} from "./components/Suitability";
 
 const browserHistory = createBrowserHistory();
 
@@ -25,8 +26,9 @@ function App() {
               <Switch>
                   <Route exact path="/" component={Home}/>
                   <Route path="/login">
-                      <LoginPage handlerShow={handleShow}/>
+                      <LoginPage toUrl=" " handlerShow={handleShow}/>
                   </Route>
+                  <Route path="/suitability" component={Suitability}/>
               </Switch>
           </Router>
       </ProvideAuth>

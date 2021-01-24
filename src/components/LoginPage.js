@@ -32,8 +32,8 @@ export function LoginPage(props){
     };
     return (
         <div className="auth-page">
-            <Container>
-                <Row className="justify-content-center">
+            <Container className="full-height align-items-center mb-1">
+                <Row className="justify-content-center ">
                     <Col lg={6}>
                         <Card>
                             <Card.Body>
