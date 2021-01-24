@@ -12,7 +12,7 @@ export function RequestTable(props) {
                 else setInformation({message: "Ok", data: resp.data.results})
             })
             .catch(error => setInformation({message: "No internet", data: null}))
-    },[information]);
+    },[]);
 
     if(information.data)  return (
         <div id={props.pname}>
