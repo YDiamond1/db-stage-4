@@ -13,7 +13,7 @@ export function Home(props){
             </Col>
             <Col lg={6}>
                 <div>
-                    <RequestTable fromUrl=" " pname="Dates"/>
+                    <RequestTable fromUrl="/api/sortsuitability" pname="Dates"/>
                 </div>
                 <div>
                     <RequestTable fromUrl="/api/transform" pname="Deadline expires"/>
