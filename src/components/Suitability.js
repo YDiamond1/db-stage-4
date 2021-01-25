@@ -16,7 +16,7 @@ export function Suitability(props){
     const search1 = event =>{
         const [name,id] = event.target.value.split(":");
         if(typeof id != "undefined"){
-            lodgers1.map(value => {if (value.id == id) setLodger1(value)
+            lodgers1.map(value => {if (value.person_id == id) setLodger1(value);
             return value;
             })
         }
@@ -37,7 +37,7 @@ export function Suitability(props){
     const search2 = event =>{
         const [name,id] = event.target.value.split(":");
         if(typeof id != "undefined"){
-            lodgers1.map(value => {if (value.id == id) setLodger2(value)
+            lodgers2.map(value => {if (value.person_id == id) setLodger2(value)
             return value;
             })
         }
@@ -159,7 +159,7 @@ export function Suitability(props){
                    />
                    <datalist id="datalistOptions2">
                        {
-                           lodgers2.map(value => <option value={value.name}/> )
+                           lodgers2.map(value => <option value={value.name + ":" + value.person_id}/> )
                        }
                    </datalist>
                </InputGroup>
